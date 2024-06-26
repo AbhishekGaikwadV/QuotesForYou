@@ -1,0 +1,83 @@
+{
+  "name": "quotesforyou",
+  "version": "2.0.0",
+  "description": "quotes serving website",
+  "scripts": {
+    "start": "concurrently -n \"FRONTEND,BACKEND\" -c \"red,blue\" -p \"[{name}]\" \"yarn start:frontend\" \"yarn start:backend\"",
+    "start:frontend": "cd client && yarn start",
+    "start:backend": "nodemon server/app.js",
+    "build": "cd client && yarn build"
+  },
+  "author": "Abhishek Gaikwad",
+  "license": "ISC",
+  "dependencies": {
+    "@blueprintjs/core": "^5.10.2",
+    "@blueprintjs/icons": "^5.9.0",
+    "axios": "^1.6.8",
+    "body-parser": "^1.20.2",
+    "concurrently": "^8.2.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "git": "^0.1.5",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.2.4",
+    "nodemailer": "^6.9.14",
+    "npm-merge-driver": "^0.0.0",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local-mongoose": "^8.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.1",
+    "react-scripts": "^3.0.1",
+    "react-toastify": "^10.0.5",
+    "request": "^2.88.2",
+    "routes": "^2.1.0",
+    "web-vitals": "^2.1.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "eslint-plugin-react": "^7.34.2"
+  },
+  "plugins": [
+    "react"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}
