@@ -3,9 +3,7 @@
   "version": "2.0.0",
   "description": "quotes serving website",
   "scripts": {
-    "start": "concurrently -n \"FRONTEND,BACKEND\" -c \"red,blue\" -p \"[{name}]\" \"yarn start:frontend\" \"yarn start:backend\"",
-    "start:frontend": "cd client && yarn start",
-    "start:backend": "nodemon server/app.js",
+    "start": "node api/app.js",
     "build": "cd client && yarn build"
   },
   "author": "Abhishek Gaikwad",
@@ -15,7 +13,6 @@
     "@blueprintjs/icons": "^5.9.0",
     "axios": "^1.6.8",
     "body-parser": "^1.20.2",
-    "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
