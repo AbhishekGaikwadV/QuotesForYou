@@ -1,7 +1,7 @@
 {
-  "name": "quotesforyou",
+  "name": "quotesforyou-client",
   "version": "2.0.0",
-  "description": "quotes serving website",
+  "description": "Frontend for quotes serving website",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build"
