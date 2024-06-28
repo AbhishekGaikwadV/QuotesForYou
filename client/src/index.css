@@ -1,0 +1,572 @@
+/* General body styles */
+body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  background-color: #2B3A67; /* Royal Navy blue */
+  color: white; /* Set the default text color */
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+/* Loader styles */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Header styles */
+.header-container {
+  width: 100%; /* Ensure the header spans the full width */
+}
+
+header {
+  width: 100%;
+  background-color: #2B3A67; /* Royal Navy blue */
+  font-size: 20px;
+  display: flex;
+  justify-content: center; /* Align content to the center horizontally */
+  align-items: center; /* Align content to the center vertically */
+  margin: 0 20px;
+}
+.heading{
+   color: White;
+}
+.navbar-brand {
+  font-family: 'Merriweather', serif;
+  font-size: 24px;
+  color: white;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 10px;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.navbar-nav .nav-link {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.navbar-text {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 18px;
+}
+
+.nav-item .nav-link {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0; /* Remove default margin */
+  padding: 20px; /* Adjusted padding */
+  margin-bottom: 50px; /* Add margin-bottom for spacing */
+}
+  
+/* Footer styles */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #2B3A67; /* Royal Navy blue */
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 0; /* Add bottom margin */
+  margin-top: 200px;
+}
+    
+/* Login styles */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+      
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-top: 30px; /* Add margin to create space between form and header */
+}
+        
+.login-input {
+  margin: 8px 0;
+  padding: 10px;
+  font-size: 16px;
+}
+          
+.login-button {
+  margin: 10px 0;
+  padding: 12px 20px; /* Increase padding for better button size */
+  font-size: 18px; /* Increase font size for better readability */
+  background-color: #2B3A67; /* Royal Navy blue */
+  color: white; /* White text color */
+  border: 2px solid transparent; /* Add a subtle border */
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /*Smooth transitions for hover effects*/
+}
+
+.login-button:hover {
+  background-color: #1a2447; /* Darker navy blue on hover */
+  border-color: #1a2447; /* Match hover background color */
+  color: #fff; /* Change text color on hover */
+}
+
+.login-button:disabled {
+  background-color: #a9a9a9; /* Grey color when disabled */
+  cursor: not-allowed; /* Not-allowed cursor when disabled */
+}
+              
+.error {
+  color: red;
+  margin-top: 10px;
+}
+                
+.signup-redirect {
+  margin-top: 20px;
+}
+  
+.signup-link {
+  color: #106ba3;
+  text-decoration: none;
+}
+    
+.signup-link:hover {
+  text-decoration: underline;
+}
+      
+/* Form styling */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Add gap between input fields */
+  padding: 20px;
+  background-color: #ffffff; /* White background for contrast */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  margin: 30px auto; /* Center the form and add margin to create space between form and header */
+  margin-bottom: 200px; /* Add bottom margin */
+}
+
+/* Ensure consistent styling for all input fields */
+.auth-input.bp5-large {
+  width: 100%;
+  font-size: 18px; /* Adjust the font size */
+  padding: 14px; /* Adjust the padding */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+        
+/* Form labels */
+.auth-form label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #2B3A67; /* Match the theme color */
+}
+
+/* Input fields */
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.auth-form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #2B3A67; /* Royal Navy blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: #1a2447;
+}
+
+.auth-form button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+/* Error message */
+.bp3-callout.bp3-intent-danger {
+  margin-bottom: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Adjusted styles for card containers */
+.myCardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 350px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="email"],
+input[type="password"],
+.search-input {
+  width: 300px; /* Adjusted width */
+  padding: 12px; /* Adjusted padding */
+  margin: 10px 0; /* Adjusted margin */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px; /* Adjusted font size */
+}
+
+button[type="submit"],
+button.fetch-button {
+  padding: 12px 20px; /* Adjusted padding */
+  font-size: 16px; /* Adjusted font size */
+  background-color: #2B3A67; /* Royal Navy blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+  
+button[type="submit"]:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+    
+/* Loader styles */
+.loader {
+  margin: 100px auto;
+}
+      
+/* User details and actions */
+.user-details {
+  display: flex;
+  justify-content: space-between;
+}
+        
+.user-actions {
+  display: flex;
+  flex-direction: column;
+}
+          
+/* ShowPage styles */
+#showpage-container {
+  min-height: 130vh; /* Increase height by 30% */
+  background-color: #2B3A67;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  padding-bottom: 80px;
+}
+
+#header-show {
+  background-color: #2B3A67; /* Royal Navy blue */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 24px;
+}
+
+#line {
+  border: 1px solid darkgoldenrod;
+}
+
+#title-show {
+  color: darkgoldenrod;
+  text-align: center;
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+#page-container {
+  background-color: #2B3A67; /* Royal Navy blue */
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#TotalPages,
+#PageNo {
+  color: white;
+  font-size: 18px;
+}
+
+#page-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  gap: 15px;
+}
+
+#content-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  gap: 30px;
+}
+
+#cards {
+  background-color: lightgoldenrodyellow;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Merriweather', serif;
+}
+
+#quote {
+  font-size: 15px;
+  text-align: center;
+}
+
+#quoteandauthor {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#button-previous,
+#button-next {
+  background-color: darkgoldenrod;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+#navigation-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 60px 0;
+  position: relative; /* Add this line */
+  z-index: 1; /* Add this line */
+}
+
+/* Button styles for Welcome Page */
+button {
+  background-color: #2B3A67; /* Royal Navy blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1a2447;
+}
+
+/*Quote_FTM styles*/
+.jumbotron {
+  text-align: center;
+  background-color: #282c34;
+  color: white;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title_Quote_FTM {
+  margin-top: 20px;
+  font-size: 30px;
+  margin-bottom: 1rem;
+}
+
+.lead a {
+  color: #61dafb;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.lead a:hover {
+  text-decoration: underline;
+}
+
+#title {
+  font-size: calc(18px + 2vmin);
+  margin: 2rem 0 1rem 0;
+}
+
+.quote-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Adjusted margin-top */
+}
+
+.quote-card {
+  background-color: lightgoldenrodyellow;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  font-family: 'Merriweather', serif;
+  margin-top: 20px; /* Adjust the margin-top as needed */
+}
+
+#quote {
+  font-size: 18px;
+  text-align: center;
+}
+
+#quoteandauthor {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#author {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Intuitive container */
+.intuitive-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #2B3A67;
+  color: white;
+}
+
+.quote-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote-card {
+  background-color: lightgoldenrodyellow;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  margin-bottom: 100px;
+}
+
+.button-container {
+  margin-top: 30px; /* Add margin to push button away from quote card */
+  margin-bottom: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .quote-card {
+    width: 80%;
+  }
+}
+
+@media (max-width: 992px) {
+  .quote-card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .quote-card {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 20px;
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 15px;
+  }
+  
+  .login-form {
+    width: 90%;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  .search-input {
+    width: 100%;
+  }
+
+  .auth-form {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  #header-show {
+    font-size: 20px;
+  }
+
+  #title-show {
+    font-size: 18px;
+  }
+  
+  .button-container {
+    flex-direction: column;
+  }
+}
