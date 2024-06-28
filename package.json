@@ -4,7 +4,7 @@
   "description": "quotes serving website",
   "scripts": {
     "start": "node api/app.js",
-    "build": "cd client && yarn build",
+    "build": "cd client && npm run build",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Abhishek Gaikwad",
