@@ -4,10 +4,7 @@
   "description": "quotes serving website",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:frontend": "react-scripts start",
-    "start:backend": "nodemon server/app.js",
-    "start": "concurrently -n \"FRONTEND,BACKEND\" -c \"red,blue\" -p \"[{name}]\" \"npm run start:frontend\" \"npm run start:backend\""
+  "start": "node app.js"
   },
   "author": "Abhishek Gaikwad",
   "license": "ISC",
