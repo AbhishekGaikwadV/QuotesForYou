@@ -3,17 +3,17 @@ import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { UserContext } from './context/UserContext.jsx';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
-import Header from './Componenets/Header.component.jsx';
-import Footer from './Componenets/Footer.component.jsx';
-import Loader from './Componenets/Loader.jsx';
-import Login from './Componenets/Login_Page_component.jsx';
-// import ForgotPassword from './Componenets/Forgot_Password.component.jsx';
-// import ResetPassword from './Componenets/Reset_Password.component.jsx';
-import SignUp from './Componenets/Sign_Up_Page.component.jsx';
-import ShowPage from './Componenets/ShowPage.component.jsx';
-import MainPage from './Componenets/MainPage.component.jsx';
-import Quote_FTM from './Componenets/Quote_FTM.component.jsx';
-import Intuitive from './Componenets/Intuitive.component.jsx';
+import Header from './Components/Header.component.jsx';
+import Footer from './Components/Footer.component.jsx';
+import Loader from './Components/Loader.jsx';
+import Login from './Components/Login_Page_component.jsx';
+// import ForgotPassword from './Components/Forgot_Password.component.jsx';
+// import ResetPassword from './Components/Reset_Password.component.jsx';
+import SignUp from './Components/Sign_Up_Page.component.jsx';
+import ShowPage from './Components/ShowPage.component.jsx';
+import MainPage from './Components/MainPage.component.jsx';
+import Quote_FTM from './Components/Quote_FTM.component.jsx';
+import Intuitive from './Components/Intuitive.component.jsx';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import { toast, ToastContainer } from 'react-toastify';
@@ -26,19 +26,17 @@ function App() {
   const [loadingQuotes, setLoadingQuotes] = useState(true);
   const [{ user, token, loading }, setUserContext] = useContext(UserContext);
   const navigate = useNavigate();
- 
-  // const apiClient = axios.create({
-  //   baseURL: 'https://quotes-for-you-a.vercel.app',
-  //   withCredentials: true // if you need to include cookies
-  // });
-  
-  // apiClient();
+
+  const apiClient = Axios.create({
+    baseURL: 'https://quotes-for-you-a.vercel.app',
+    withCredentials: true // if you need to include cookies
+  });
 
   useEffect(() => {
     const fetchQuotes = async () => {
       setLoadingQuotes(true);
       try {
-        const response1 = await Axios.get("https://quotes-for-you-a.vercel.app/");
+        const response1 = await apiClient.get("/");
         if (response1.headers['content-type'].includes('application/json')) {
           setQuote(response1.data.quote);
           setAuthor(response1.data.author);
@@ -46,7 +44,7 @@ function App() {
           throw new Error('Response is not in JSON format');
         }
 
-        const response2 = await Axios.get("https://quotes-for-you-a.vercel.app/show");
+        const response2 = await apiClient.get("/show");
         if (response2.headers['content-type'].includes('application/json')) {
           setQuotes(response2.data.quotes);
         } else {
@@ -60,7 +58,7 @@ function App() {
     };
 
     fetchQuotes();
-  }, []);
+  }, [apiClient]);
 
   const syncLogout = useCallback(event => {
     if (event.key === "logout") {
