@@ -5,11 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { UserProvider } from './context/UserContext.jsx'; // Ensure there's a space between from and './context/UserContext.jsx'
+import reportWebVitals from './reportWebVitals';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+reportWebVitals();
 root.render(
   <React.StrictMode>
       <Router>
