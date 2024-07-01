@@ -61,20 +61,15 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Define CORS options
-const whitelist = process.env.WHITELISTED_DOMAINS ? process.env.WHITELISTED_DOMAINS.split(",") : [];
-const corsOptions = {
-    origin: function (origin, callback) {
-        if (!origin || whitelist.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
-    credentials: true,
-};
+app.use(cors({
+    origin: 'https://quotes-for-you-client.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true // if you need to include cookies in the requests
+  }));
+  
+//CORS for non-simple requests other than GET/POST  
+ app.options('*', cors());
 
-// Apply CORS middleware
-app.use(cors(corsOptions));
 
 // Parse JSON bodies
 app.use(bodyParser.json());

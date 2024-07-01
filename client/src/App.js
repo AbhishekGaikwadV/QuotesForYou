@@ -27,6 +27,12 @@ function App() {
   const [{ user, token, loading }, setUserContext] = useContext(UserContext);
   const navigate = useNavigate();
  
+  const apiClient = axios.create({
+    baseURL: 'https://quotes-for-you-a.vercel.app',
+    withCredentials: true // if you need to include cookies
+  });
+  
+  apiClient();
 
   useEffect(() => {
     const fetchQuotes = async () => {
