@@ -9,7 +9,7 @@ const Intuitive = () => {
 
   const fetchQuote = () => {
     // Fetch a random quote from the server
-    Axios.get("http://localhost:3001/microapp", {
+    Axios.get("https://quotes-for-you-a.vercel.app/microapp", {
       headers: {
         "Content-Type": "application/json"
       }

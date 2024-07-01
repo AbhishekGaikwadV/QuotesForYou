@@ -18,7 +18,7 @@ const ResetPassword = () => {
     }
     console.log('Submitting password reset request with token:', token);
     try {
-      const response = await axios.post(`http://localhost:3001/reset-password/${token}`, { password }, {
+      const response = await axios.post(`https://quotes-for-you-a.vercel.app/reset-password/${token}`, { password }, {
         headers: {
           'Content-Type': 'application/json'
         }

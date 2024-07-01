@@ -26,12 +26,13 @@ function App() {
   const [loadingQuotes, setLoadingQuotes] = useState(true);
   const [{ user, token, loading }, setUserContext] = useContext(UserContext);
   const navigate = useNavigate();
+ 
 
   useEffect(() => {
     const fetchQuotes = async () => {
       setLoadingQuotes(true);
       try {
-        const response1 = await Axios.get("http://localhost:3001/");
+        const response1 = await Axios.get("https://quotes-for-you-a.vercel.app/");
         if (response1.headers['content-type'].includes('application/json')) {
           setQuote(response1.data.quote);
           setAuthor(response1.data.author);
@@ -39,7 +40,7 @@ function App() {
           throw new Error('Response is not in JSON format');
         }
 
-        const response2 = await Axios.get("http://localhost:3001/show");
+        const response2 = await Axios.get("https://quotes-for-you-a.vercel.app/show");
         if (response2.headers['content-type'].includes('application/json')) {
           setQuotes(response2.data.quotes);
         } else {

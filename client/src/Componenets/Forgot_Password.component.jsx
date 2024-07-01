@@ -10,7 +10,7 @@ const ForgotPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/forgot-password', { email }, {
+      const response = await axios.post('https://quotes-for-you-a.vercel.app/forgot-password', { email }, {
         headers: {
           'Content-Type': 'application/json'
         }

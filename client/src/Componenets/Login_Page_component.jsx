@@ -18,7 +18,7 @@ const Login = () => {
     event.preventDefault();
     setIsSubmitting(true);
 
-    const apiUrl = `${process.env.REACT_APP_API_ENDPOINT}login`;
+    const apiUrl = "https://quotes-for-you-a.vercel.app/login";
 
     try {
       // Send login request

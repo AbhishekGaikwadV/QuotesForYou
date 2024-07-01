@@ -10,7 +10,7 @@ const QuoteFTM = () => {
     // Function to fetch a quote from the server
     const fetchQuote = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/');
+        const response = await axios.get('https://quotes-for-you-a.vercel.app/');
         const { quote, author } = response.data;
         setQuote(quote);
         setAuthor(author);

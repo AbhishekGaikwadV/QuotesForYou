@@ -14,7 +14,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [userContext, setUserContext] = useContext(UserContext);
 
-  const apiUrl = `${process.env.REACT_APP_API_ENDPOINT}signup`;
+  const apiUrl = "https://quotes-for-you-a.vercel.app/signup";
   const genericErrorMessage = 'Something went wrong! Please try again later.';
 
   const formSubmitHandler = (e) => {
