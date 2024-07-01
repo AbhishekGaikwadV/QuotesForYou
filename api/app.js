@@ -67,8 +67,7 @@ app.use(cors({
     credentials: true // if you need to include cookies in the requests
   }));
   
-//CORS for non-simple requests other than GET/POST  
- app.options('*', cors());
+
 
 
 // Parse JSON bodies

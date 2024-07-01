@@ -1,33 +1,34 @@
-// Login.js
 import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate
-import axios from 'axios';
+import Axios from 'axios';
 import { UserContext } from '../context/UserContext';
-import Reset from './Reset_Password.component';
-
 
 const Login = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userContext, setUserContext] = useContext(UserContext);
+  const [, setUserContext] = useContext(UserContext);
   const navigate = useNavigate(); // Get navigate function from react-router-dom
+
+  // Create an Axios instance for API requests
+  const apiClient = Axios.create({
+    baseURL: 'https://quotes-for-you-a.vercel.app',
+    withCredentials: true, // if you need to include cookies
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
 
-    const apiUrl = "https://quotes-for-you-a.vercel.app/login";
-
     try {
-      // Send login request
-      const response = await axios.post(apiUrl, {
+      // Send login request using apiClient
+      const response = await apiClient.post("/login", {
         username: email,
         password
-      }, {
-        withCredentials: true,
-        headers: { 'Content-Type': 'application/json' }
       });
 
       const data = response.data;
@@ -44,8 +45,8 @@ const Login = () => {
         }
       }));
 
-      // Redirect to dashboard or another page after successful login
-      navigate('/login'); // Example redirect to '/dashboard'
+      // Redirect to another page after successful login
+      navigate('/main'); // Example redirect to '/main'
 
     } catch (error) {
       setIsSubmitting(false);
@@ -81,8 +82,6 @@ const Login = () => {
       <span>
         <Link to="/forgot">Forgot Password?</Link>
       </span>
-
-    
     </div>
   );
 };

@@ -50,6 +50,14 @@ function App() {
         }
       } catch (error) {
         console.error('Error:', error);
+        toast.error('Failed to fetch quotes. Please try again later.', {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
       } finally {
         setLoadingQuotes(false);
       }
@@ -75,7 +83,6 @@ function App() {
     setUserContext({ user: null, token: null, loading: false });
     localStorage.removeItem('user');
     localStorage.removeItem('token');
-    localStorage.removeItem('someOtherItem');
     window.localStorage.setItem('logout', Date.now().toString());
     toast.success('You have been logged out', {
       position: toast.POSITION.TOP_CENTER,
@@ -101,8 +108,6 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          {/* <Route path="/forgot" element={<ForgotPassword />} />
-          <Route path="/reset-password/:token" element={<ResetPassword />} /> */}
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       ) : (

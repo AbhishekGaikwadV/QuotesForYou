@@ -1,16 +1,24 @@
-// QuoteFTM.js
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 
 const QuoteFTM = () => {
   const [quote, setQuote] = useState('');
   const [author, setAuthor] = useState('');
 
+  // Create an Axios instance for API requests
+  const apiClient = Axios.create({
+    baseURL: 'https://quotes-for-you-a.vercel.app',
+    withCredentials: true, // if you need to include cookies
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
   useEffect(() => {
     // Function to fetch a quote from the server
     const fetchQuote = async () => {
       try {
-        const response = await axios.get('https://quotes-for-you-a.vercel.app/');
+        const response = await apiClient.get('/');
         const { quote, author } = response.data;
         setQuote(quote);
         setAuthor(author);
@@ -26,7 +34,7 @@ const QuoteFTM = () => {
     }, 20000);
 
     return () => clearInterval(intervalId); // Clear interval on component unmount
-  }, []);
+  }, [apiClient]);
 
   return (
     <div className="intuitive-container">

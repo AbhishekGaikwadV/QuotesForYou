@@ -1,4 +1,3 @@
-// Intuitive.js
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { Card, Button } from "@blueprintjs/core";
@@ -7,13 +6,17 @@ const Intuitive = () => {
   const [quote, setQuote] = useState(null);
   const [author, setAuthor] = useState(null);
 
+  // Create an Axios instance for API requests
+  const apiClient = Axios.create({
+    baseURL: 'https://quotes-for-you-a.vercel.app',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
   const fetchQuote = () => {
-    // Fetch a random quote from the server
-    Axios.get("https://quotes-for-you-a.vercel.app/microapp", {
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
+    // Fetch a random quote from the server using apiClient
+    apiClient.get("/microapp")
       .then(response => {
         const contentType = response.headers['content-type'];
         if (!contentType || !contentType.includes('application/json')) {
