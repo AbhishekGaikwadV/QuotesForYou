@@ -14,7 +14,7 @@ import Quote_FTM from './Componenets/Quote_FTM.component.jsx';
 import Intuitive from './Componenets/Intuitive.component.jsx';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
-import { toast, ToastContainer, POSITION } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
       } catch (error) {
         console.error('Error:', error);
         toast.error('Failed to fetch quotes. Please try again later.', {
-          position: POSITION.TOP_CENTER,
+          position: toast.POSITION.TOP_CENTER,
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -85,7 +85,7 @@ function App() {
     localStorage.removeItem('token');
     window.localStorage.setItem('logout', Date.now().toString());
     toast.success('You have been logged out', {
-      position: POSITION.TOP_CENTER,
+      position: toast.POSITION.TOP_CENTER,
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
