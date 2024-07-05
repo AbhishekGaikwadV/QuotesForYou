@@ -60,15 +60,19 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// Define CORS options
+// Custom CORS middleware
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*'); // Allow all origins
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
+
+// Define CORS options for specific routes if needed
 app.use(cors({
     origin: 'https://quotes-for-you-client.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true // if you need to include cookies in the requests
-  }));
-  
-
-
+}));
 
 // Parse JSON bodies
 app.use(bodyParser.json());
@@ -80,7 +84,6 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(usersession);
 app.use(index);
 app.use(intuitive);
-
 
 // Server setup
 const PORT = process.env.PORT || 3001;
