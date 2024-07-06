@@ -34,21 +34,11 @@ function App() {
     const fetchQuotes = async () => {
       setLoadingQuotes(true);
       try {
-        const response1 = await apiClient.get("/");
-        console.log('Response1:', response1);
+        const response = await apiClient.get("/show");
+        console.log('Response:', response);
 
-        if (response1.headers['content-type'].includes('application/json')) {
-          setQuote(response1.data.quote);
-          setAuthor(response1.data.author);
-        } else {
-          throw new Error('Response is not in JSON format');
-        }
-
-        const response2 = await apiClient.get("/show");
-        console.log('Response2:', response2);
-
-        if (response2.headers['content-type'].includes('application/json')) {
-          setQuotes(response2.data.quotes);
+        if (response.headers['content-type'].includes('application/json')) {
+          setQuotes(response.data.quotes);
         } else {
           throw new Error('Response is not in JSON format');
         }
