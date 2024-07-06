@@ -3,14 +3,14 @@ const router = express.Router({ mergeParams: true });
 const Quote = require("../models/quotes");
 const cors = require("cors");
 
-// CORS configuration
-app.use(cors({
-    origin: 'https://quotes-for-you-client.vercel.app', // Allow specific origin
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
-    credentials: true // Include cookies in the requests
-  }));
-
+// Configure CORS
+const corsOptions = {
+    origin: "https://quotes-for-you-client-eu6ep6l6o-abhishek-gaikwads-projects.vercel.app", // Replace with your frontend origin
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept",
+    credentials: true // Allow cookies and other credentials
+  };
+  
 // Home Route - Fetch a random quote
 router.get("/", async (req, res) => {
     const que = Math.round(Math.random() * 1601);
