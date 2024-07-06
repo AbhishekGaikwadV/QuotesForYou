@@ -11,12 +11,12 @@ const nodemailer = require('nodemailer');
 
 // CORS configuration
 app.use(cors({
-  origin: '*', // Allow all origins
-  Access-Control-Allow-Origin: *,// Allow all origins 
+  origin: 'https://quotes-for-you-client.vercel.app/', // Allow specific origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
-  credentials: true // if you need to include cookies in the requests
+  credentials: true // Include cookies in the requests
 }));
+
 app.use(express.json());
 
 const resetPasswordSecret = process.env.RESET_PASSWORD_SECRET; // Replace with your secret key

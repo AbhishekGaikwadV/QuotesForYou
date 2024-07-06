@@ -2,14 +2,14 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
+
 // CORS configuration
 app.use(cors({
-  origin: '*', // Allow all origins
-  Access-Control-Allow-Origin: *,// Allow all origins 
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
-  credentials: true // if you need to include cookies in the requests
-}));
+    origin: 'https://quotes-for-you-client.vercel.app/', // Allow specific origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
+    credentials: true // Include cookies in the requests
+  }));
 
 // Middleware object
 const middlewareObj = {};
