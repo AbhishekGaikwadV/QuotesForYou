@@ -4,12 +4,12 @@ const cors = require("cors");
 
 
 // Configure CORS
-const corsOptions = {
-    origin: "https://quotes-for-you-client-eu6ep6l6o-abhishek-gaikwads-projects.vercel.app", // Replace with your frontend origin
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept",
-    credentials: true // Allow cookies and other credentials
-  };
+app.use(cors({
+    origin: ['https://quotes-for-you-client.vercel.app', 'https://quotes-for-you-client-eu6ep6l6o-abhishek-gaikwads-projects.vercel.app'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
+    credentials: true // Include cookies in the requests
+  }));
 
 // Middleware object
 const middlewareObj = {};

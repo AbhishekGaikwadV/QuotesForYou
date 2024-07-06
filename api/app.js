@@ -60,13 +60,13 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-/// Configure CORS
-const corsOptions = {
-    origin: "https://quotes-for-you-client-eu6ep6l6o-abhishek-gaikwads-projects.vercel.app", // Replace with your frontend origin
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept",
-    credentials: true // Allow cookies and other credentials
-  };
+// Configure CORS
+app.use(cors({
+    origin: ['https://quotes-for-you-client.vercel.app', 'https://quotes-for-you-client-eu6ep6l6o-abhishek-gaikwads-projects.vercel.app'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
+    credentials: true // Include cookies in the requests
+  }));
 
 // Parse JSON bodies
 app.use(bodyParser.json());
