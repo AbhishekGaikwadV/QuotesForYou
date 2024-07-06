@@ -3,8 +3,13 @@ const router = express.Router({ mergeParams: true });
 const Quote = require("../models/quotes");
 const cors = require("cors");
 
-// CORS implementation
-router.use(cors());
+// CORS configuration
+router.use(cors({
+  origin: '*', // Allow all origins
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
+  credentials: true // if you need to include cookies in the requests
+}));
 
 // Home Route - Fetch a random quote
 router.get("/", async (req, res) => {

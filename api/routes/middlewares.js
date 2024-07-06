@@ -3,7 +3,12 @@ const app = express();
 const cors = require("cors");
 
 // CORS configuration
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allow all origins
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
+  credentials: true // if you need to include cookies in the requests
+}));
 
 // Middleware object
 const middlewareObj = {};

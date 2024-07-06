@@ -10,7 +10,12 @@ const router = express.Router({ mergeParams: true });
 const nodemailer = require('nodemailer');
 
 // CORS configuration
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allow all origins
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
+  credentials: true // if you need to include cookies in the requests
+}));
 app.use(express.json());
 
 const resetPasswordSecret = process.env.RESET_PASSWORD_SECRET; // Replace with your secret key
