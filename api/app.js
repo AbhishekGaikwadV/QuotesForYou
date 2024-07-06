@@ -7,7 +7,7 @@ const express = require("express");
 const app = express();
 const index = require("./routes/index");
 const usersession = require("./routes/usersession");
-const intuitive = require("./routes/intutive");
+const intuitive = require("./routes/intuitive");
 const bodyParser = require("body-parser");
 const User = require("./models/users");
 const Quote = require("./models/quotes");
@@ -60,17 +60,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// Custom CORS middleware
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*'); // Allow all origins
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-});
-
-// Define CORS options for specific routes if needed
+// CORS configuration
 app.use(cors({
-    origin: 'https://quotes-for-you-client.vercel.app',
+    origin: '*', // Allow all origins
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
     credentials: true // if you need to include cookies in the requests
 }));
 
