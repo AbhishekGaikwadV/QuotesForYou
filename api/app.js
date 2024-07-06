@@ -63,7 +63,7 @@ passport.deserializeUser(User.deserializeUser());
 // CORS configuration
 app.use(cors({
    
-    origin: 'https://quotes-for-you-client.vercel.app/', // Allow specific origin
+    origin: 'https://quotes-for-you-client.vercel.app', // Allow specific origin
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
     credentials: true // Include cookies in the requests
