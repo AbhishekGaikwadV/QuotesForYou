@@ -26,7 +26,7 @@ function App() {
   const navigate = useNavigate();
 
   const apiClient = Axios.create({
-    baseURL: 'https://quotes-for-you-a.vercel.app',
+    baseURL: 'https://quotes-for-you-client.vercel.app',
     withCredentials: true // if you need to include cookies
   });
 

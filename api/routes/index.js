@@ -6,6 +6,7 @@ const cors = require("cors");
 // CORS configuration
 router.use(cors({
   origin: '*', // Allow all origins
+  Access-Control-Allow-Origin: *,// Allow all origins 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
   credentials: true // if you need to include cookies in the requests
