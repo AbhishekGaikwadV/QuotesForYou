@@ -11,6 +11,19 @@ app.use(cors({
     credentials: true // Include cookies in the requests
   }));
 
+  // Set Access-Control-Allow-Origin header
+app.use((req, res, next) => {
+    const allowedOrigins = ['https://quotes-for-you-client.vercel.app', 'https://quotes-for-you-client-eu6ep6l6o-abhishek-gaikwads-projects.vercel.app'];
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
+
 // Home Route - Fetch a random quote
 router.get("/", async (req, res) => {
     const que = Math.round(Math.random() * 1601);
