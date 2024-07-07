@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate
+import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import { UserContext } from '../context/UserContext';
 
@@ -9,7 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [, setUserContext] = useContext(UserContext);
-  const navigate = useNavigate(); // Get navigate function from react-router-dom
+  const navigate = useNavigate();
 
   // Create an Axios instance for API requests
   const apiClient = Axios.create({
@@ -40,6 +40,12 @@ const Login = () => {
         username: email,
         password
       });
+
+      // Detailed logging of the response
+      console.log('Response Status:', response.status);
+      console.log('Response Headers:', response.headers);
+      console.log('Response Data:', response.data);
+      console.log('Response Config:', response.config);
 
       const data = response.data;
       setIsSubmitting(false);
