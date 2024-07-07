@@ -20,6 +20,16 @@ const Login = () => {
     }
   });
 
+  apiClient.interceptors.request.use((config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  }, (error) => {
+    return Promise.reject(error);
+  });
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
@@ -46,7 +56,7 @@ const Login = () => {
       }));
 
       // Redirect to another page after successful login
-      navigate('/main'); // Example redirect to '/main'
+      navigate('/allquotes'); // Example redirect to '/allquotes'
 
     } catch (error) {
       setIsSubmitting(false);

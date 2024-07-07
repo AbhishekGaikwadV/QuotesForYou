@@ -61,16 +61,26 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Configure CORS
-app.use(cors({
-    origin: ['https://quotes-for-you-client.vercel.app', 'https://quotes-for-you-client-eu6ep6l6o-abhishek-gaikwads-projects.vercel.app'],
+const allowedOrigins = [
+    'https://quotes-for-you-client.vercel.app',
+    'https://quotes-for-you-client-eu6ep6l6o-abhishek-gaikwads-projects.vercel.app'
+  ];
+  
+  app.use(cors({
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
     credentials: true // Include cookies in the requests
   }));
-
-// Set Access-Control-Allow-Origin header
-app.use((req, res, next) => {
-    const allowedOrigins = ['https://quotes-for-you-client.vercel.app'];
+  
+  // Set Access-Control-Allow-Origin header
+  app.use((req, res, next) => {
     const origin = req.headers.origin;
     if (allowedOrigins.includes(origin)) {
       res.setHeader('Access-Control-Allow-Origin', origin);
@@ -80,7 +90,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     next();
   });
-
+  
 // Parse JSON bodies
 app.use(bodyParser.json());
 

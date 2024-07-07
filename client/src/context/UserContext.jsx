@@ -22,7 +22,7 @@ const UserProvider = (props) => {
     }
 
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}me`, {
+      const response = await axios.get('https://quotes-for-you-client.vercel.app/me', {
         headers: {
           Authorization: `Bearer ${state.token}` // Attach token to request headers
         }

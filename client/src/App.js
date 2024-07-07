@@ -29,6 +29,16 @@ function App() {
     baseURL: 'https://quotes-for-you-client.vercel.app',
     withCredentials: true // if you need to include cookies
   });
+  
+  apiClient.interceptors.request.use((config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  }, (error) => {
+    return Promise.reject(error);
+  });
 
   useEffect(() => {
     const fetchQuotes = async () => {
@@ -107,7 +117,7 @@ function App() {
       ) : (
         <Routes>
           <Route path="/moment" element={<Quote_FTM />} />
-          <Route path="/main" element={<MainPage quote={quote} author={author} />} />
+          <Route path="/show" element={<MainPage quote={quote} author={author} />} />
           <Route path="/allquotes" element={loadingQuotes ? <Loader /> : <ShowPage quotes={quotes} />} />
           <Route path="/intuitive" element={<Intuitive />} />
           <Route path="/logout" element={<Navigate to="/login" replace />} />
