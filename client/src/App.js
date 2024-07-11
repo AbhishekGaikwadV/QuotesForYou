@@ -3,7 +3,7 @@ import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { UserContext } from './context/UserContext.jsx';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
-import Header from './Components/Header.jsx';
+import Header from './Components/Header.component.jsx';
 import Footer from './Components/Footer.component.jsx';
 import Loader from './Components/Loader.component.jsx';
 import Login from './Components/Login_Page_component.jsx';
