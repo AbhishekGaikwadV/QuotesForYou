@@ -9,7 +9,7 @@ import Loader from './Components/Loader.component.jsx';
 import Login from './Components/Login_Page_component.jsx';
 import Signup from './Components/Sign_Up_Page.component.jsx';
 import ShowPage from './Components/ShowPage.component.jsx';
-import MainPage from './Components/MainPage.component.jsx';
+import MainPage from './Components/MainPage.components.jsx';
 import Quote_FTM from './Components/Quote_FTM.component.jsx';
 import Intuitive from './Components/Intuitive.component.jsx';
 import '@blueprintjs/core/lib/css/blueprint.css';
