@@ -5,7 +5,7 @@ import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Header from './Components/Header.component.jsx';
 import Footer from './Components/Footer.component.jsx';
-import Loader from './Components/Loader.component.jsx';
+import Loader from './Components/Loader.component.jsx';s
 import Login from './Components/Login_Page_component.jsx';
 import Signup from './Components/Sign_Up_Page.component.jsx';
 import ShowPage from './Components/ShowPage.component.jsx';
