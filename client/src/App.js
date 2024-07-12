@@ -5,11 +5,11 @@ import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Header from './Components/Header.component.jsx';
 import Footer from './Components/Footer.component.jsx';
-import Loader from './Components/Loader.component.jsx';s
+import Loader from './Components/Loader.component.jsx';
 import Login from './Components/Login_Page_component.jsx';
-import Signup from './Components/Sign_Up_Page.component.jsx';
+import SignUp from './Components/Sign_Up_Page.component.jsx'; // Fixed typo in import
 import ShowPage from './Components/ShowPage.component.jsx';
-import MainPage from './Components/MainPage.components.jsx';
+import MainPage from './Components/MainPage.component.jsx'; // Fixed typo in import
 import Quote_FTM from './Components/Quote_FTM.component.jsx';
 import Intuitive from './Components/Intuitive.component.jsx';
 import '@blueprintjs/core/lib/css/blueprint.css';
@@ -19,7 +19,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const apiClient = Axios.create({
   baseURL: 'https://your-api-endpoint.com/api/quotes', // Ensure this URL is correct
-  withCredentials: true
+  withCredentials: true,
+  headers: {
+    'Accept': 'application/json' // Added Accept header to ensure JSON response
+  }
 });
 
 apiClient.interceptors.request.use((config) => {
