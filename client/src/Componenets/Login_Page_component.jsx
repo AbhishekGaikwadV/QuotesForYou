@@ -16,7 +16,8 @@ const Login = () => {
     baseURL: 'https://quotes-for-you-a.vercel.app',
     withCredentials: true, // if you need to include cookies
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Accept': 'application/json' // Ensure server returns JSON
     }
   });
 
@@ -47,23 +48,26 @@ const Login = () => {
       console.log('Response Data:', response.data);
       console.log('Response Config:', response.config);
 
-      const data = response.data;
-      setIsSubmitting(false);
+      if (response.headers['content-type'].includes('application/json')) {
+        const data = response.data;
+        setIsSubmitting(false);
 
-      // Save token and user details in context
-      localStorage.setItem('token', data.token);
-      setUserContext(oldValues => ({
-        ...oldValues,
-        token: data.token,
-        user: {
-          id: data.userId,
-          email: data.email,
-        }
-      }));
+        // Save token and user details in context
+        localStorage.setItem('token', data.token);
+        setUserContext(oldValues => ({
+          ...oldValues,
+          token: data.token,
+          user: {
+            id: data.userId,
+            email: data.email,
+          }
+        }));
 
-      // Redirect to another page after successful login
-      navigate('/allquotes'); // Example redirect to '/allquotes'
-
+        // Redirect to another page after successful login
+        navigate('/allquotes'); // Example redirect to '/allquotes'
+      } else {
+        throw new Error('Response is not in JSON format');
+      }
     } catch (error) {
       setIsSubmitting(false);
       console.error('Login failed:', error);
