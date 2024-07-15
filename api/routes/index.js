@@ -1,4 +1,5 @@
 const express = require("express");
+const app = express();
 const router = express.Router({ mergeParams: true });
 const Quote = require("../models/quotes");
 const cors = require("cors");
