@@ -4,6 +4,7 @@
   "description": "quotes serving website",
   "main": "app.js",
   "scripts": {
+  "build": "cd api && npm install && node app.js",
   "start": "node app.js"
   },
   "author": "Abhishek Gaikwad",
