@@ -17,7 +17,7 @@
     "react-toastify": "^10.0.5"
   },
   "scripts": {
-    "build": "cd client && npm install && npm run build""build",
+    "build": "cd client && npm install && npm run build,
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
